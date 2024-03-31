@@ -19,8 +19,22 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Main from "./../Main";
+import SecondSideBar from "../SecondSideBar";
+import SideBar from "../../shared-components/SideBar";
+import MainNavBar from "../MainNavBar";
+import SecondNav from "../../SecondNav/SecondNav";
+
 
 export default function News() {
+  function closeSideBar() {
+    document.getElementById("news").style.paddingInlineStart = "0px";
+    document.getElementById('side-bar').style.insetInlineStart = '-272px';
+    document.getElementById('side-bar').classList.remove('side-openes');
+    document.getElementById('overlay').style.display = "none"
+    document.getElementById("secondNavBar").classList.remove('show-side-bar');
+    document.getElementById("profile-notif").style.display = "flex";
+    document.getElementById("open-second").style.display = "none";
+  }
   let ceseList = [
     {
       id: "1",
@@ -63,246 +77,254 @@ export default function News() {
   const NewsSwiperRef = useRef(null);
   const NewsSwiperRef1 = useRef(null);
   return (
-    <div className="news">
-      <div className="swiper">
-        <div className="slider-title">
-          <div className="tilte">
-            <i className="fa-solid fa-rocket"></i>
-            <h3>Quick News</h3>
-          </div>
-          <div className="navigation-cont">
-            <div
-              onClick={() => NewsSwiperRef.current.slideNext()}
-              className="swiper-button-next"
-            >
-              <i class="fa-solid fa-arrow-right-long"></i>
+    <div className="news-containerMain" id="news-containerMain">
+      <SideBar />
+      <div className="news" id="news">
+        <SecondNav></SecondNav>
+        <div className="news-container">
+          <div className="swiper">
+            <div className="slider-title">
+              <div className="tilte">
+                <i className="fa-solid fa-rocket"></i>
+                <h3>Quick News</h3>
+              </div>
+              <div className="navigation-cont">
+                <div
+                  onClick={() => NewsSwiperRef.current.slideNext()}
+                  className="swiper-button-next"
+                >
+                  <i class="fa-solid fa-arrow-right-long"></i>
+                </div>
+                <span className="arrow-swiper">Swipe</span>
+                <div
+                  onClick={() => NewsSwiperRef.current.slidePrev()}
+                  className="swiper-button-prev"
+                >
+                  <i class="fa-solid fa-arrow-left-long"></i>
+                </div>
+              </div>
             </div>
-            <span className="arrow-swiper">Swipe</span>
-            <div
-              onClick={() => NewsSwiperRef.current.slidePrev()}
-              className="swiper-button-prev"
-            >
-              <i class="fa-solid fa-arrow-left-long"></i>
-            </div>
-          </div>
-        </div>
-        <div className="thumbs-product-slider">
-          <Swiper
-            onBeforeInit={(swiper) => {
-              NewsSwiperRef.current = swiper;
-            }}
-            modules={[Navigation, Thumbs]}
-            spaceBetween={"15px"}
-            slidesPerView={3}
-            loop={true}
-            autoplay={true}
-            navigation={true}
-            slideToClickedSlide={true}
-            watchSlidesProgress
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-              },
-              600: {
-                slidesPerView: 2,
-              },
-              1200: {
-                slidesPerView: 3,
-              },
-            }}
-          >
-            {swiperArr.map((slid) => (
-              <SwiperSlide>
-                <div className="productImg" key={slid}>
-                  <div
-                    className="Thumbs-imgContainer"
-                    style={{ backgroundImage: `url(${slid.image})` }}
-                  >
-                    <div className="layout">
-                      <div className="date">15 Feb 2024</div>
-                      <div className="conent">
-                        <p>
-                          Elon Musk asks the same question in all job interviews
-                          to detect a liar.
-                        </p>
-                        <div className="seen">
-                          <i className="fa-regular fa-eye"></i>{" "}
-                          <span>150K</span>
+            <div className="thumbs-product-slider">
+              <Swiper
+                onBeforeInit={(swiper) => {
+                  NewsSwiperRef.current = swiper;
+                }}
+                modules={[Navigation, Thumbs]}
+                spaceBetween={"15px"}
+                slidesPerView={3}
+                loop={true}
+                autoplay={true}
+                navigation={true}
+                slideToClickedSlide={true}
+                watchSlidesProgress
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                  },
+                  600: {
+                    slidesPerView: 2,
+                  },
+                  1200: {
+                    slidesPerView: 3,
+                  },
+                }}
+              >
+                {swiperArr.map((slid) => (
+                  <SwiperSlide>
+                    <div className="productImg" key={slid}>
+                      <div
+                        className="Thumbs-imgContainer"
+                        style={{ backgroundImage: `url(${slid.image})` }}
+                      >
+                        <div className="layout">
+                          <div className="date">15 Feb 2024</div>
+                          <div className="conent">
+                            <p>
+                              Elon Musk asks the same question in all job interviews
+                              to detect a liar.
+                            </p>
+                            <div className="seen">
+                              <i className="fa-regular fa-eye"></i>{" "}
+                              <span>150K</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+          <div className="news-tags">
+            <span className="active">🔥 Trends</span>
+            <span>Prompt Generator</span>
+            <span>Thinking Method</span>
+            <span>Leab 2024</span>
+          </div>
+          <div className="swiper">
+            <div className="slider-title">
+              <div className="tilte">
+                <i className="fa-solid fa-book"></i>
+                <h3>Quick News</h3>
+              </div>
+              <div className="navigation-cont">
+                <div
+                  onClick={() => NewsSwiperRef1.current.slideNext()}
+                  className="swiper-button-next"
+                >
+                  <i class="fa-solid fa-arrow-right-long"></i>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
-      <div className="news-tags">
-        <span className="active">🔥 Trends</span>
-        <span>Prompt Generator</span>
-        <span>Thinking Method</span>
-        <span>Leab 2024</span>
-      </div>
-      <div className="swiper">
-        <div className="slider-title">
-          <div className="tilte">
-            <i className="fa-solid fa-book"></i>
-            <h3>Quick News</h3>
-          </div>
-          <div className="navigation-cont">
-            <div
-              onClick={() => NewsSwiperRef.current.slideNext()}
-              className="swiper-button-next"
-            >
-              <i class="fa-solid fa-arrow-right-long"></i>
+                <div
+                  onClick={() => NewsSwiperRef1.current.slidePrev()}
+                  className="swiper-button-prev"
+                >
+                  <i class="fa-solid fa-arrow-left-long"></i>
+                </div>
+              </div>
             </div>
-            <div
-              onClick={() => NewsSwiperRef.current.slidePrev()}
-              className="swiper-button-prev"
-            >
-              <i class="fa-solid fa-arrow-left-long"></i>
-            </div>
-          </div>
-        </div>
 
-        <div className="thumbs-product-slider">
-          <Swiper
-            onBeforeInit={(swiper) => {
-              NewsSwiperRef1.current = swiper;
-            }}
-            modules={[Navigation, Thumbs]}
-            spaceBetween={"15px"}
-            slidesPerView={2}
-            loop={true}
-            autoplay={true}
-            navigation={true}
-            slideToClickedSlide={true}
-            watchSlidesProgress
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-              },
-              700: {
-                slidesPerView: 1,
-              },
-              1200: {
-                slidesPerView: 2,
-              },
-              7680: {
-                slidesPerView: 2,
-              },
-            }}
-          >
-            {swiperArr2.map((slid) => (
-              <SwiperSlide>
-                <div className="swiper-slide-n">
-                  <div
-                    className="card-img"
-                    style={{ backgroundImage: `url(${slid.image})` }}
-                  >
-                    <span>Integrations</span>
-                    <span>Remote</span>
-                  </div>
-                  <div className="card-title">
-                    Stagger Lee and the ’Erasure’ of Middle-Class African
-                    Americans
-                  </div>
-                  <div className="card-date">
-                    <i className="fa-regular fa-clock"></i>
-                    <span className="mins">6 min read</span>
-                    <p> . </p> <span className="months">Feb14,2024 </span>
-                  </div>
-                  <div className="top-emp">
-                    <div className="container">
-                      <div className="emp you">
-                        <div className="profil">
-                          <div className="img-cont">
-                            <img src={profile} alt="profile" />
-                          </div>
-                          <div className="nam">
-                            <h4>Ahmed Sharaby</h4>
-                            <span>Product Designer</span>
+            <div className="thumbs-product-slider">
+              <Swiper
+                onBeforeInit={(swiper) => {
+                  NewsSwiperRef1.current = swiper;
+                }}
+                modules={[Navigation, Thumbs]}
+                spaceBetween={"15px"}
+                slidesPerView={2}
+                loop={true}
+                autoplay={true}
+                navigation={true}
+                slideToClickedSlide={true}
+                watchSlidesProgress
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                  },
+                  700: {
+                    slidesPerView: 1,
+                  },
+                  1200: {
+                    slidesPerView: 2,
+                  },
+                  7680: {
+                    slidesPerView: 2,
+                  },
+                }}
+              >
+                {swiperArr2.map((slid) => (
+                  <SwiperSlide>
+                    <div className="swiper-slide-n">
+                      <div
+                        className="card-img"
+                        style={{ backgroundImage: `url(${slid.image})` }}
+                      >
+                        <span>Integrations</span>
+                        <span>Remote</span>
+                      </div>
+                      <div className="card-title">
+                        Stagger Lee and the ’Erasure’ of Middle-Class African
+                        Americans
+                      </div>
+                      <div className="card-date">
+                        <i className="fa-regular fa-clock"></i>
+                        <span className="mins">6 min read</span>
+                        <p> . </p> <span className="months">Feb14,2024 </span>
+                      </div>
+                      <div className="top-emp">
+                        <div className="container">
+                          <div className="emp you">
+                            <div className="profil">
+                              <div className="img-cont">
+                                <img src={profile} alt="profile" />
+                              </div>
+                              <div className="nam">
+                                <h4>Ahmed Sharaby</h4>
+                                <span>Product Designer</span>
+                              </div>
+                            </div>
+                            <p>.</p>
+                            <div className="scor">Follow</div>
                           </div>
                         </div>
-                        <p>.</p>
-                        <div className="scor">Follow</div>
                       </div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+          <div className="list-courss">
+            <div className="h3">
+              <i className="fa-solid fa-trophy"></i>
+              <h3>Your Courses</h3>
+            </div>
+            <div className="list-courss-cont">
+              {ceseList.map((item) => (
+                <div className="cours-item">
+                  <div className="rit">
+                    {item.id === "1" ? (
+                      <i className="fa-solid fa-caret-down"></i>
+                    ) : (
+                      ""
+                    )}
+                    <span className="gap-area"></span>
+                    {item.status === "done" ? (
+                      <i className="fa-solid fa-circle-check"></i>
+                    ) : item.status === "inProgress" ? (
+                      <i className="fa-regular fa-circle-dot"></i>
+                    ) : item.status === "notYet" ? (
+                      <i className="fa-solid fa-circle-dot"></i>
+                    ) : (
+                      ""
+                    )}
+                    <span className="gap-area"></span>
+                    {item.id == ceseList.length ? (
+                      <i className="fa-solid fa-circle"></i>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div className="lft">
+                    <div className="img-cont">
+                      <LazyLoadImage src={item.img} alt="product"></LazyLoadImage>
+                    </div>
+                    <div className="crs-detals">
+                      <span>{item.channel}</span>
+                      <p>{item.title}</p>
+                      <p className="clock">
+                        <i className="fa-regular fa-clock"> </i> {item.time} hours
+                        left{" "}
+                      </p>
+                      {item.status === "inProgress" ? (
+                        <div className="prg">
+                          <div className="prgrs-don"></div>
+                        </div>
+                      ) : null}
+                    </div>
+                    <div className="finiss">
+                      <button className="more-btn">
+                        <i className="fa-solid fa-ellipsis"></i>
+                      </button>
+                      {item.status === "done" ? (
+                        <span className="don-status">Completed</span>
+                      ) : item.status === "inProgress" ? (
+                        <span className="inprog-status">Resume Course</span>
+                      ) : item.status === "notYet" ? (
+                        <Link className="notYet-status">Start Now</Link>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
-      <div className="list-courss">
-        <div className="h3">
-          <i className="fa-solid fa-trophy"></i>
-          <h3>Your Courses</h3>
-        </div>
-        <div className="list-courss-cont">
-          {ceseList.map((item) => (
-            <div className="cours-item">
-              <div className="rit">
-                {item.id === "1" ? (
-                  <i className="fa-solid fa-caret-down"></i>
-                ) : (
-                  ""
-                )}
-                <span className="gap-area"></span>
-                {item.status === "done" ? (
-                  <i className="fa-solid fa-circle-check"></i>
-                ) : item.status === "inProgress" ? (
-                  <i className="fa-regular fa-circle-dot"></i>
-                ) : item.status === "notYet" ? (
-                  <i className="fa-solid fa-circle-dot"></i>
-                ) : (
-                  ""
-                )}
-                <span className="gap-area"></span>
-                {item.id == ceseList.length ? (
-                  <i className="fa-solid fa-circle"></i>
-                ) : (
-                  ""
-                )}
-              </div>
-              <div className="lft">
-                <div className="img-cont">
-                  <LazyLoadImage src={item.img} alt="product"></LazyLoadImage>
-                </div>
-                <div className="crs-detals">
-                  <span>{item.channel}</span>
-                  <p>{item.title}</p>
-                  <p className="clock">
-                    <i className="fa-regular fa-clock"> </i> {item.time} hours
-                    left{" "}
-                  </p>
-                  {item.status === "inProgress" ? (
-                    <div className="prg">
-                      <div className="prgrs-don"></div>
-                    </div>
-                  ) : null}
-                </div>
-                <div className="finiss">
-                  <button className="more-btn">
-                    <i className="fa-solid fa-ellipsis"></i>
-                  </button>
-                  {item.status === "done" ? (
-                    <span className="don-status">Completed</span>
-                  ) : item.status === "inProgress" ? (
-                    <span className="inprog-status">Resume Course</span>
-                  ) : item.status === "notYet" ? (
-                    <Link className="notYet-status">Start Now</Link>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
+      <div className="overlay" id="overlay" onClick={closeSideBar}></div>
+      <SecondSideBar></SecondSideBar>
     </div>
   );
 }

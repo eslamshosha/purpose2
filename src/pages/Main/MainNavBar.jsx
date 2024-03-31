@@ -18,7 +18,7 @@ export default function MainNavBar() {
             document.getElementById('side-bar').style.insetInlineStart = '0';
             document.getElementById('pageContent').style.transform = 'translateX(-272px)';
             document.getElementById('side-bar').style.transform = 'translateX(-0)';
-            // document.getElementById("all").style.paddingInlineStart = "272px";
+            document.getElementById("all").style.paddingInlineStart = "0px";
 
         }
         else if (window.innerWidth < 991 && document.getElementById('side-bar').classList.contains("side-openes")) {
@@ -69,7 +69,9 @@ export default function MainNavBar() {
                             <div className="nav-profile">
                                 <div className="menu">
                                     <div className="user-cont dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <div className="img-cont" onClick={displaySecond}>
+                                        <div className="img-cont" 
+                                        // onClick={displaySecond}
+                                        >
                                             <img src={profile} alt='profile' />
                                         </div>
                                     </div>

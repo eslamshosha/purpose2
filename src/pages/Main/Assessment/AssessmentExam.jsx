@@ -9,10 +9,13 @@ export default function AssessmentExam() {
     let btnName = "Start Now";
     const [num, setNum] = useState(-1);
     let numLink = num+1;
+    let activeBtnTo = "";
     if (num <= 0) {
         acctuWid = 0;
         widt = acctuWid / 20 * 100;
         btnName = "Start Now";
+        activeBtnTo="activeBtnTo";
+
     }
     else if(num < 20){
         btnName = "Continue";
@@ -71,9 +74,9 @@ export default function AssessmentExam() {
             </div>
         <Outlet context={[arr[num-1]]}></Outlet>
             
-            <div className="exam-footer">
-                <div className="counter"><span>{acctuWid}</span>/20</div>
-                <Link to={"/main/assessment/assessment-exam/"+numLink}><button onClick={addNum}>{btnName}</button></Link>
+            <div className={activeBtnTo + " exam-footer"}>
+                <div className=" counter"><span>{acctuWid}</span>/20</div>
+                <Link to={"/main/assessment/assessment-exam/"+numLink}><button onClick={addNum}  id='nextBtn'>{btnName}</button></Link>
 
             </div>
         </div>

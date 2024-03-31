@@ -1,6 +1,5 @@
 .assessment {
     min-height: 100vh;
-    direction: ltr;
     padding: 45px;
     min-height: 100vh;
 
@@ -161,10 +160,12 @@
         border: none;
         outline: none !important;
         @include tr;
-        &.active{
-        background-color: #6C5DD3;
+
+        &.active {
+            background-color: #6C5DD3;
         }
-        &:hover{
+
+        &:hover {
             background-color: $hover;
         }
     }
@@ -187,6 +188,10 @@
         border-radius: 8px;
         margin-bottom: 0;
     }
+}
+
+.exam-welcome {
+    min-height: calc(100vh - 400px);
 }
 
 .ExamDetails {
@@ -260,18 +265,40 @@
         min-height: 150px;
         background-color: #f5f5f5;
     }
-    .radio-btn{
+
+    .radio-btn {
         display: none;
     }
+
     label:has(> input:checked) {
         background-color: #E4E4E4;
         color: #7E7E7E;
         @include tr;
+    }
+}
 
+.assessment-exam:has(input:checked) {
+    .exam-footer {
+        button {
+            background-color: #6C5DD3;
+        }
+    }
+}
+
+.assessment-exam:has(textarea) {
+    .exam-footer {
+        button {
+            background-color: #6C5DD3;
+        }
     }
 }
 
 
+.activeBtnTo{
+    button {
+        background-color: #6C5DD3;
+    }
+}
 
 
 
@@ -295,4 +322,40 @@
     .ExamDetails .form {
         grid-template-columns: 1fr;
     }
+    .assessment {
+        .container-class {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 30px;
+        }
+    }
+    .pers{
+        justify-content: space-between;
+        gap: unset;
+    }
+    .tet-field{
+        width: 100%;
+    }
+}
+
+@include max-991 {
+    
+}
+
+@include max-767 {
+    .assessment {
+        .container-class {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 0px;
+        }
+    }
+    .pers{
+        justify-content: space-between;
+        gap: unset;
+    }
+    .tet-field{
+        width: 100%;
+    }
+
 }

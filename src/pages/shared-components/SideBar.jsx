@@ -39,7 +39,7 @@ export default function SideBar(e) {
             </div>
             <div className="side-nav-links">
                 <ul className='' id='nav-ul'>
-                    <li className=' nav-li' id='active'><NavLink to={'recommended'} className='a-p'><i className="fa-solid fa-house"></i> <span>الرئيسية</span></NavLink></li>
+                    <li className=' nav-li' id='active'><NavLink to={'/main/recommended'} className='a-p'><i className="fa-solid fa-house"></i> <span>الرئيسية</span></NavLink></li>
                     <li className='nav-li accordion-li'>
                         <div>
                             <Accordion>
@@ -48,23 +48,23 @@ export default function SideBar(e) {
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <Typography>
-                                        <li className='in-li'><NavLink className='a-p' to={'socialHome'}><i className="fa-solid fa-house"></i> <span>الرئيسية</span></NavLink></li>
-                                        <li className='in-li'><NavLink className='a-p' to={'profile'}><i className="fa-regular fa-user"></i> <span>الملف الشخصي</span></NavLink></li>
-                                        <li className='in-li'><NavLink className='a-p' to={'friends'}><i className="fa-solid fa-people-group"></i> <span>الأصدقاء</span></NavLink></li>
-                                        <li className='in-li'><NavLink className='a-p' to={'messages'}><i className="fa-regular fa-message"></i> <span>المسجات</span></NavLink></li>
+                                        <li className='in-li'><NavLink className='a-p' to={'/main/socialHome'}><i className="fa-solid fa-house"></i> <span>الرئيسية</span></NavLink></li>
+                                        <li className='in-li'><NavLink className='a-p' to={'/main/profile'}><i className="fa-regular fa-user"></i> <span>الملف الشخصي</span></NavLink></li>
+                                        <li className='in-li'><NavLink className='a-p' to={'/main/friends'}><i className="fa-solid fa-people-group"></i> <span>الأصدقاء</span></NavLink></li>
+                                        <li className='in-li'><NavLink className='a-p' to={'/main/messages'}><i className="fa-regular fa-message"></i> <span>المسجات</span></NavLink></li>
                                     </Typography>
                                 </AccordionDetails>
                             </Accordion>
                         </div>
                     </li>
-                    <li className='nav-li'><NavLink className='a-p' to={'subjects'}><i className="fa-solid fa-chart-bar"></i> <span>المواد</span></NavLink></li>
-                    <li className='nav-li'><NavLink className='a-p' to={'recorded'}><i className="fa-brands fa-chromecast"></i> <span>الحصص المسجله</span></NavLink></li>
-                    <li className='nav-li'><NavLink className='a-p' to={'Live'}><i className="fa-solid fa-graduation-cap"></i> <span>الحصص المباشرة</span></NavLink></li>
-                    <li className='nav-li'><NavLink className='a-p' to={'blog/id=1'}><i className="fa-solid fa-microphone-lines"></i> <span>المدونة</span></NavLink></li>
-                    <li className='nav-li'><NavLink className='a-p' to={'assessment'}><i className="fa-solid fa-list-ol"></i><span>الامتحانات</span></NavLink></li>
-                    <li className='nav-li'><NavLink className='a-p' to={'news'}><i className="fa-regular fa-newspaper"></i><span>الأخبار</span></NavLink></li>
-                    <li className='nav-li'><NavLink className='a-p' to={'competitions'}><i className="fa-solid fa-trophy"></i> <span>المسابقات</span></NavLink></li>
-                    <li className='nav-li'><NavLink className='a-p' to={'board'}><i className="fa-solid fa-chalkboard-user"></i> <span>لوحتى التعليمية</span></NavLink></li>
+                    <li className='nav-li'><NavLink className='a-p' to={'/main/subjects'}><i className="fa-solid fa-chart-bar"></i> <span>المواد</span></NavLink></li>
+                    <li className='nav-li'><NavLink className='a-p' to={'/main/recorded'}><i className="fa-brands fa-chromecast"></i> <span>الحصص المسجله</span></NavLink></li>
+                    <li className='nav-li'><NavLink className='a-p' to={'/main/Live'}><i className="fa-solid fa-graduation-cap"></i> <span>الحصص المباشرة</span></NavLink></li>
+                    <li className='nav-li'><NavLink className='a-p' to={'/main/blog/id=1'}><i className="fa-solid fa-microphone-lines"></i> <span>المدونة</span></NavLink></li>
+                    <li className='nav-li'><NavLink className='a-p' to={'/main/assessment'}><i className="fa-solid fa-list-ol"></i><span>الامتحانات</span></NavLink></li>
+                    <li className='nav-li'><NavLink className='a-p' to={'/'}><i className="fa-regular fa-newspaper"></i><span>الأخبار</span></NavLink></li>
+                    <li className='nav-li'><NavLink className='a-p' to={'/main/competitions'}><i className="fa-solid fa-trophy"></i> <span>المسابقات</span></NavLink></li>
+                    <li className='nav-li'><NavLink className='a-p' to={'/main/board'}><i className="fa-solid fa-chalkboard-user"></i> <span>لوحتى التعليمية</span></NavLink></li>
                 </ul>
             </div>
             {/* <div className="side-nav-footer">

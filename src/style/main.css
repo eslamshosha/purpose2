@@ -2203,9 +2203,6 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root:hover {
 .nav-right .i-cont {
   background-color: #efefef !important;
 }
-.nav-right .profile-notif {
-  display: none;
-}
 
 .MuiFormControl-root,
 .MuiTextField-root,
@@ -2430,8 +2427,8 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root:hover {
   padding: 0;
 }
 .side-nav-links ul .active {
-  background-color: #F5F5F9;
-  color: #434B94 !important;
+  background-color: #f5f5f9;
+  color: #434b94 !important;
   border-radius: 12px;
 }
 .side-nav-links ul .active a {
@@ -2498,13 +2495,13 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root:hover {
   color: #949494;
 }
 .accordion-li .active {
-  background-color: #F5F5F9;
-  color: #434B94 !important;
+  background-color: #f5f5f9;
+  color: #434b94 !important;
   border-radius: 12px;
 }
 .accordion-li .active span,
 .accordion-li .active i {
-  color: #434B94 !important;
+  color: #434b94 !important;
 }
 
 .side-nav-footer {
@@ -2628,13 +2625,19 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root:hover {
     transition: all 0.3s ease-in-out;
   }
 }
+@media (max-width: 991px) {
+  .side-nav-links li .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {
+    justify-content: space-between;
+  }
+}
 .side-nav-links li .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {
   padding: 0;
   width: 100%;
 }
 
-.side-bar-small .css-o4b71y-MuiAccordionSummary-content {
-  justify-content: center;
+.side-bar.side-bar-small .css-o4b71y-MuiAccordionSummary-content {
+  flex-grow: 0;
+  margin: 0;
 }
 
 .main {
@@ -2645,7 +2648,6 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root:hover {
 .all {
   position: relative;
   padding-inline-start: 120px;
-  padding-inline-end: 350px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -6372,6 +6374,7 @@ html[dir=ltr] .second-btn {
   bottom: 0;
   inset-inline-end: 0;
   width: 350px;
+  max-width: 100vw;
   padding: 50px 32px;
   z-index: 500;
   background-color: #f8f8f8;
@@ -6870,7 +6873,6 @@ html[dir=ltr] .second-btn {
 }
 .assessment {
   min-height: 100vh;
-  direction: ltr;
   padding: 45px;
   min-height: 100vh;
 }
@@ -7035,6 +7037,10 @@ html[dir=ltr] .second-btn {
   margin-bottom: 0;
 }
 
+.exam-welcome {
+  min-height: calc(100vh - 400px);
+}
+
 .ExamDetails {
   justify-content: center;
 }
@@ -7103,6 +7109,18 @@ html[dir=ltr] .second-btn {
   transition: all 0.3s ease-in-out;
 }
 
+.assessment-exam:has(input:checked) .exam-footer button {
+  background-color: #6C5DD3;
+}
+
+.assessment-exam:has(textarea) .exam-footer button {
+  background-color: #6C5DD3;
+}
+
+.activeBtnTo button {
+  background-color: #6C5DD3;
+}
+
 @media only screen and (max-width: 1199px) {
   .welcom-cont {
     width: 90%;
@@ -7114,10 +7132,51 @@ html[dir=ltr] .second-btn {
   .ExamDetails .form {
     grid-template-columns: 1fr;
   }
+  .assessment .container-class {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 30px;
+  }
+  .pers {
+    justify-content: space-between;
+    gap: unset;
+  }
+  .tet-field {
+    width: 100%;
+  }
 }
+@media only screen and (max-width: 767px) {
+  .assessment .container-class {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0px;
+  }
+  .pers {
+    justify-content: space-between;
+    gap: unset;
+  }
+  .tet-field {
+    width: 100%;
+  }
+}
+.news-containerMain {
+  position: relative;
+  overflow: hidden;
+}
+
 .news {
   min-height: 100vh;
+  padding-inline-end: 350px;
+  padding-inline-start: 120px;
+}
+.news .news-container {
   padding: 50px;
+}
+.news .profile-notif .notifi {
+  display: none;
+}
+.news .profile-notif .nav-profile {
+  display: none;
 }
 .news .swiper .slider-title {
   display: flex;
@@ -7159,6 +7218,7 @@ html[dir=ltr] .second-btn {
   border-radius: 16px;
   background-repeat: no-repeat;
   background-size: cover;
+  max-height: 50vh;
   border: 4px solid #D7D1FF;
 }
 .news .Thumbs-imgContainer .layout {
@@ -7437,7 +7497,8 @@ html[dir=ltr] .second-btn {
   font-size: 25px;
   color: #808191;
 }
-.list-courss .cours-item .finiss span, .list-courss .cours-item .finiss a {
+.list-courss .cours-item .finiss span,
+.list-courss .cours-item .finiss a {
   width: 170px;
   text-align: center;
   padding: 14px 0;
@@ -7463,11 +7524,6 @@ html[dir=ltr] .second-btn {
   color: var(--white-color);
 }
 
-@media (max-width: 767px) {
-  .news {
-    padding: 20px;
-  }
-}
 @media (max-width: 1200px) {
   .list-courss .cours-item .lft {
     flex-direction: column;
@@ -7478,6 +7534,25 @@ html[dir=ltr] .second-btn {
   }
   .list-courss .cours-item .lft .crs-detals {
     gap: 10px;
+  }
+}
+@media (max-width: 991px) {
+  .news-containerMain .secondNavBar {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .news-containerMain .show-side-bar {
+    opacity: 1;
+    visibility: visible;
+  }
+  .news .profile-notif .nav-profile {
+    display: block;
+  }
+  .news {
+    padding: 0px;
+  }
+  .news .news-container {
+    padding: 20px;
   }
 }
 .view-port {

@@ -39,11 +39,13 @@ const Home = lazy(() => import('./pages/Home/Home'))
 function App() {
   const routes = createBrowserRouter([{
     path: '', element: <Layout></Layout>, children: [
-      { index: true, element: <Suspense><Home></Home></Suspense> },
+      { index: true, element: <News></News> },
+      { index: "home", element: <Suspense><Home></Home></Suspense> },
       { path: 'payment', element: <Payment></Payment> },
       { path: 'about', element: <Suspense><About></About></Suspense> },
       {
         path: 'main', element: <Main></Main>, children: [
+          { path: '', element: <News></News> },
           { path: 'leaderboard', element: <Leaderboard></Leaderboard> },
           { path: 'recommended', element: <RecommendedCourses></RecommendedCourses> },
           { path: 'recorded', element: <RecordedLessons></RecordedLessons> },
