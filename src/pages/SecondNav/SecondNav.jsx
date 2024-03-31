@@ -31,8 +31,6 @@ export default function SecondNav() {
             document.getElementById('news').classList.remove('all-lagre');
             document.getElementById("news").style.paddingInlineStart = "122px";
 
-
-
         }
     }
     function displaySecond() {
