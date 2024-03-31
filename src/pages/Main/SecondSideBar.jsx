@@ -14,12 +14,13 @@ export default function SecondSideBar() {
     //     setbarMenu(!barMenu);
     // }
     function closeSecond() {
-        // document.getElementById("secondNavBar").style.display = "none";
+        document.getElementById("secondNavBar").style.display = "none";
         document.getElementById("profile-notif").style.display = "flex";
         document.getElementById("open-second").style.display = "none";
-        document.getElementById('secondNavBar').classList.remove('show-side-bar');
         document.getElementById('overlay').style.display = "none"
-
+        // document.getElementById('all').classList.remove('all-lagre');
+        // document.getElementById('pageContent').style.transform = 'translateX(0px)';
+        // document.getElementById('secondNavBar').style.transform = 'translateX(-350px)';
     }
     return (
         <div className='secondNavBar' id='secondNavBar'>

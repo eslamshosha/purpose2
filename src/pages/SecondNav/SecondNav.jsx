@@ -10,39 +10,47 @@ export default function SecondNav() {
         if (document.getElementById('side-bar').classList == 'side-bar side-bar-small' && window.innerWidth >= 991) {
             document.getElementById('side-bar').classList.remove('side-bar-small');
             document.getElementById('side-bar').style.transform = 'translateX(0px)';
-            document.getElementById("news").style.paddingInlineStart = "272px";
+            document.getElementById("all").style.paddingInlineStart = "272px";
         }
         else if (window.innerWidth < 991 && !document.getElementById('side-bar').classList.contains("side-openes")) {
             document.getElementById('side-bar').classList.add('side-openes');
             document.getElementById('overlay').style.display = "block"
-            document.getElementById('side-bar').style.insetInlineStart = '152px';
-            document.getElementById('news-containerMain').style.overflow = 'hidden';
+            document.getElementById('side-bar').style.insetInlineStart = '0';
+            document.getElementById('pageContent').style.transform = 'translateX(-272px)';
+            document.getElementById('side-bar').style.transform = 'translateX(-0)';
+            document.getElementById("all").style.paddingInlineStart = "0px";
+            // document.getElementById('news-containerMain').style.paddingInlineStart = '270px';
+            // document.getElementById('news-containerMain').style.transform = 'translateX(-270px)';
+            // document.getElementById("news").style.paddingInlineStart = "272px";
+            
         }
         else if (window.innerWidth < 991 && document.getElementById('side-bar').classList.contains("side-openes")) {
-            document.getElementById('news').classList.remove('all-lagre');
-            // document.getElementById('pageContent').style.transform = 'translateX(0)';
+            document.getElementById('all').classList.remove('all-lagre');
+            document.getElementById('pageContent').style.transform = 'translateX(0)';
             document.getElementById('side-bar').style.insetInlineStart = '-272px';
-
             document.getElementById('side-bar').classList.remove('side-openes');
             document.getElementById('overlay').style.display = "none"
         }
         else {
             document.getElementById('side-bar').classList.add('side-bar-small');
-            document.getElementById('news').classList.remove('all-lagre');
-            document.getElementById("news").style.paddingInlineStart = "122px";
+            document.getElementById('all').classList.remove('all-lagre');
+            document.getElementById("all").style.paddingInlineStart = "122px";
+
 
         }
     }
     function displaySecond() {
         document.getElementById("profile-notif").style.display = "none";
         document.getElementById("secondNavBar").style.insetInlineEnd = "0";
-        // document.getElementById("secondNavBar").style.display = "block";
+        document.getElementById("secondNavBar").style.display = "block";
         document.getElementById("open-second").style.display = "block";
-        document.getElementById('secondNavBar').classList.add('show-side-bar');
+        // document.getElementById('side-bar').classList.add('side-bar-small');
+        // document.getElementById('').classList.remove('all-lagre');
         document.getElementById('overlay').style.display = "block"
+        // document.getElementById('pageContent').style.transform = 'translateX(350px)';
     }
     return (
-        <div className='main-navbar'>
+        <div className='main-navbar ' >
             <header>
                 <div className="top-header">
 
